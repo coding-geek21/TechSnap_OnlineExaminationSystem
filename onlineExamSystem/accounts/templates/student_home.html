@@ -11,7 +11,7 @@
            <div class="col-lg-6">
             <div class="row " style="margin-top: 100px;">
                 <div class="col-3">
-                    <h1>ACTCEJNCLD ONLINE TEST EXAM</h1>
+                    <h1>TECHSNAP ONLINE EXAM</h1>
                 </div>
                 <div class="col-3">
                     <div class="row">
@@ -27,11 +27,11 @@
                 <div class=row>
                     <form id="registration" class="form-inline" method="POST" action="" >{% csrf_token %}
                 <div class="col-6">
-                    {{request.user.course}}
-                    {{form.paper}}    
+                    {{request.user.subject}}
+                    {{form.testname}}    
                 </div><br><br>
                 <div class="col-6">
-                    <button class="btn btn-primary" style="width: 30%; height: 100px; line-height: 100px;" type='submit'><h3>Enter To Exam</h3></button>
+                    <button class="btn btn-primary" style="width: 30%; height: 100px; line-height: 100px;" type='submit'><h3>Start Exam</h3></button>
                 </div>
             </form>
                 </div>

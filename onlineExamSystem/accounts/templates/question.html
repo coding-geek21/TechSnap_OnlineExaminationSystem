@@ -6,10 +6,10 @@
             <div class="text">Name-{{request.user.name}}</div>
         </div>
         <div class="col-lg-2">
-            <div class="text">Roll Number {{request.user.roll}}</div>
+            <div class="text">Username - {{request.user.username}}</div>
         </div>
-        <div class="col-lg-2"><div class="text">Course-{{request.user.course}},Paper-{{request.session.paper}} </div></div>
-        <div class="col-lg-3"><div class="text"> Want To Leave the Exam <a href="{% url 'student_home' %}">Click Here</a> </div></div>
+        <div class="col-lg-2"><div class="text">Subject -{{request.user.subject}},Test -{{request.session.testname}} </div></div>
+        <div class="col-lg-3"><div class="text"> Click here to Leave the Exam <a href="{% url 'student_home' %}">Click Here</a> </div></div>
         <div class="col-lg-3">
             <script>
                 var x = setInterval(function() {

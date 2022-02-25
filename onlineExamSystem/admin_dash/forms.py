@@ -5,8 +5,8 @@ class AddQFrm(forms.ModelForm):
         model=Questions
         fields=[
             'qs_no',
-            'course',
-            'paper',
+           'subject',
+            'testname',
             'questions',
             'answers',
             'option_a',

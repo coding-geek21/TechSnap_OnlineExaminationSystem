@@ -10,8 +10,8 @@
                 <tr>
                    
                     <th class="min-tablet">ID</th>
-                    <th class="min-tablet">Course</th>
-                    <th class="min-tablet">Paper</th>
+                    <th class="min-tablet">Subject</th>
+                    <th class="min-tablet">Test</th>
                     <th class="min-tablet">Question No.</th>
                     <th class="min-tablet">Question</th>
                     <th class="min-desktop">Answer</th>
@@ -24,9 +24,9 @@
                {% for a in ans %}
                 <tr>
                     <td>{{a.question.id}}</td>
-                    <td>{{a.question.course}}</td>
+                    <td>{{a.question.subject}}</td>
                    
-                    <td>{{a.question.paper}}</td>
+                    <td>{{a.question.testname}}</td>
                     <td>{{a.question.qs_no}}</td>
                     <td>{{a.question.questions}}</td>
                     <td>{{a.answer}}</td>

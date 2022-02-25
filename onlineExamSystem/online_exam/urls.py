@@ -20,6 +20,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('accounts.urls')),
+    path('',include('examHome.urls')),
+    path('student/',include('accounts.urls')),
     path('examadmin/',include('admin_dash.urls'),)
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

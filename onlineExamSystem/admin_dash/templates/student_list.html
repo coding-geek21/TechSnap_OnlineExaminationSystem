@@ -11,8 +11,8 @@
                    
                     <th class="min-tablet">ID</th>
                     <th class="min-tablet">Name</th>
-                    <th class="min-tablet">Phone</th>
-                    <th class="min-tablet">Roll</th>
+                    <th class="min-tablet">Email</th>
+                    <th class="min-tablet">username</th>
                     <th class="min-tablet">Attened Questions</th>
                     <th class="min-desktop">Result</th>
                     
@@ -24,8 +24,8 @@
                     <td>{{std.id}}</td>
                     <td>{{std.name}}</td>
                    
-                    <td>{{std.phone}}</td>
-                    <td>{{std.roll}}</td>
+                    <td>{{std.email}}</td>
+                    <td>{{std.username}}</td>
                     <td><a href="{% url 'answerd_questions' std.id %}" class="btn btn-info">View</a><td><a href="{% url 'result' std.id %}" class="btn btn-danger">View</a>
                 </tr>
                 {% endfor %}

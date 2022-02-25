@@ -41,18 +41,12 @@
         <script src="{% static 'js/demo/dashboard-v2.js' %}"></script>
         <script src="{% static 'plugins/datatables/media/js/jquery.dataTables.js' %}"></script>
         <script src="{% static 'plugins/datatables/media/js/dataTables.bootstrap.js' %}"></script>
-        <script src="{% static 'plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js' %}">
-        
+        <script src="{% static 'plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js' %}"></script>
         <script src="{% static 'js/demo/tables-datatables.js' %}"></script>
-
     </head>
-
-    <!--TIPS-->
-    <!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
     <body>
         <div id="container" class="effect mainnav-sm navbar-fixed mainnav-fixed">
-            <!--NAVBAR-->
-            <!--===================================================-->
+         
             <header id="navbar">
                 <div id="navbar-container" class="boxed">
                     <div class="navbar-content clearfix">
@@ -89,7 +83,7 @@
                         <a href="" class="navbar-brand">
                             <i class="fa fa-forumbee brand-icon"></i>
                             <div class="brand-title">
-                                <span class="brand-text">ACTCEJNCLD</span>
+                                <span class="brand-text">TechSnap</span>
                             </div>
                         </a>
                     </div>
@@ -103,23 +97,14 @@
                                         <li> <a href="{% url 'view_question'%}"> <i class="fa fa-question"></i> <span class="menu-title"> View Questions </span> </a> </li>
                                         <li> <a href="{% url 'view_results'%}"> <i class="fa fa-line-chart"></i> <span class="menu-title"> View Student Results </span> </a> </li>
                                         <li> <a href="{% url 'student_list'%}"> <i class="fa fa-users"></i> <span class="menu-title"> View Students </span> </a> </li>
-                                        <li> <a href="{% url 'generate_report'%}"> <i class="fa fa-file-pdf-o"></i> <span class="menu-title"> Generate Marks List </span> </a> </li>
-                                    </ul>
-                             
+                                    </ul>       
                                 </div>
                             </div>
                         </div>
                     </div>
                 </nav>
              </div>
-            <footer id="footer">
-                <div class="hide-fixed pull-right pad-rgt">v-1.0</div>
-                  <p class="pad-lft">&#0169; 2020 kktechsol.</p>
-            </footer>
                <button id="scroll-top" class="btn"><i class="fa fa-chevron-up"></i></button>
          </div>
-  
-      
-      
     </body>
 </html>

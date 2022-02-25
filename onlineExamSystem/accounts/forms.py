@@ -10,32 +10,32 @@ ANS_CHOICES= [
     ]
 
 class RegistrationForm(forms.ModelForm):
-    roll=forms.CharField(widget=forms.TextInput(attrs={'class':'','id':'roll','placeholder':'Roll Number'}))
-    phone=forms.CharField(widget=forms.TextInput(attrs={'class':'phone','id':'phone','placeholder':'Phone Number'}))
+    username=forms.CharField(widget=forms.TextInput(attrs={'class':'','id':'username','placeholder':'username'}))
+    email=forms.CharField(widget=forms.TextInput(attrs={'class':'email','id':'email','placeholder':'email'}))
     name=forms.CharField(widget=forms.TextInput(attrs={'class':'name','id':'name','placeholder':'Full Name'}))
     class Meta:
         model=User
         fields=[
-			'roll',
+			'username',
             'name',
-            'phone',
-            'course',
+            'email',
+            'subject',
 
         ]
 class LoginForm(forms.Form):
-	roll=forms.CharField(widget=forms.TextInput(attrs={'class':'','id':'roll','placeholder':'Roll Number'}))
-	phone=forms.CharField(widget=forms.TextInput(attrs={'class':'phone','id':'phone','placeholder':'Phone Number'}))
+	username=forms.CharField(widget=forms.TextInput(attrs={'class':'','id':'username','placeholder':'username'}))
+	email=forms.CharField(widget=forms.TextInput(attrs={'class':'email','id':'email','placeholder':'email'}))
 
 	def clean(self,*args,**kwargs):
-		phone=self.cleaned_data.get('phone')
-		roll=self.cleaned_data.get('roll')
+		email=self.cleaned_data.get('email')
+		username=self.cleaned_data.get('username')
 		return super(LoginForm,self).clean(*args,**kwargs)
 
 class ExamChoiceFrm(forms.ModelForm):
     class Meta:
         model=Questions
         fields=[
-            'paper',
+            'testname',
         ]
 class AnsChoice(forms.Form):
     ans= forms.CharField(label='Select a oprion', widget=forms.RadioSelect(choices=ANS_CHOICES))

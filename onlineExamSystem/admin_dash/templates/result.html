@@ -9,18 +9,16 @@
             <thead>
                 <tr>
                     <th class="min-tablet">Exam Name</th>
-                    <th class="min-tablet">Course Paper</th>
+                    <th class="min-tablet">Subject Test</th>
                     <th class="min-tablet">Total Marks</th>
-                    <th class="min-tablet">Marks</th>
-                   
-                    
+                    <th class="min-tablet">Marks</th>     
                 </tr>
             </thead>
             <tbody>
                {% for exam in exams %}
                 <tr>
                     <td>Exam{{forloop.counter}}</td>
-                    <td>{{exam.course}} - {{exam.paper}}</td>
+                    <td>{{exam.subject}} - {{exam.testname}}</td>
                    
                     <td>{{exam.total_marks}}</td>
                     <td>{{exam.marks}}</td>

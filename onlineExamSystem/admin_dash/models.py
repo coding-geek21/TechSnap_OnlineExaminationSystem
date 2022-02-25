@@ -1,20 +1,22 @@
 from django.db import models
 from django.conf import settings
-class Course(models.Model):
-    course=models.CharField(max_length=150,unique=True)
+
+class Subject(models.Model):
+    subject=models.CharField(max_length=150,unique=True)
     
     def __str__(self):
-        return self.course
-class Paper(models.Model):
-    paper=models.CharField(max_length=150)
+        return self.subject
+
+class TestName(models.Model):
+    testname=models.CharField(max_length=150)
 
     def __str__(self):
-        return self.paper
+        return self.testname
 
 class Questions(models.Model):
     qs_no=models.IntegerField()
-    course=models.ForeignKey(Course,on_delete=models.CASCADE)
-    paper=models.ForeignKey(Paper,on_delete=models.CASCADE)
+    subject=models.ForeignKey(Subject,on_delete=models.CASCADE)
+    testname=models.ForeignKey(TestName,on_delete=models.CASCADE)
     questions=models.TextField()
     
     answers=models.CharField(max_length=20)

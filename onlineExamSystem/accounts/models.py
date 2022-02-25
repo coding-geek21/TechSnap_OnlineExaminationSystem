@@ -1,15 +1,15 @@
 from django.db import models
-from admin_dash.models import Course
+from admin_dash.models import Subject
 from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser
 )
 class UserManager(BaseUserManager):
-	def create_user(self,roll,phone,name,password=None):
-		if not roll:
+	def create_user(self,username,email,name,password=None):
+		if not username:
 			raise ValueError('You Dont have Permission to do exam')
 		user = self.model(
-			roll=roll,
-            phone=phone,
+			username=username,
+            email=email,
             name=name
 		)
 		user.set_password(password)
@@ -17,24 +17,24 @@ class UserManager(BaseUserManager):
 		return user
 
 
-	def create_superuser(self,roll,phone,name, password):
-		user = self.create_user(roll,phone,name,password=password)
+	def create_superuser(self,username,email,name, password):
+		user = self.create_user(username,email,name,password=password)
 		user.is_admin = True
 		user.is_staff=True
 		user.save(using=self._db)
 		return user
 
 class User(AbstractBaseUser):
-	phone= models.CharField(verbose_name='phone number', max_length=12,unique=True)
+	email= models.CharField(verbose_name='email', max_length=150,unique=True)
 	name=models.CharField(max_length=150,null=True)
-	roll=models.CharField(max_length=20,verbose_name='roll',unique=True)
-	course=models.ForeignKey(Course,on_delete=models.CASCADE,null=True,blank=True)
+	username=models.CharField(max_length=20,verbose_name='username',unique=True)
+	subject=models.ForeignKey(Subject,on_delete=models.CASCADE,null=True,blank=True)
 	date_joind=models.DateTimeField(verbose_name='date joind', auto_now_add=True)
 	is_active = models.BooleanField(default=True)
 	is_admin = models.BooleanField(default=False)
 	is_staff=models.BooleanField(default=False)
-	USERNAME_FIELD = 'roll'
-	REQUIRED_FIELDS = ['name','phone']
+	USERNAME_FIELD = 'username'
+	REQUIRED_FIELDS = ['name','email']
 	objects = UserManager()
 
 	def __str__(self):

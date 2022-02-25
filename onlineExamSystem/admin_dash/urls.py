@@ -10,8 +10,5 @@ urlpatterns = [
     path('students/', views.students, name='student_list'),
     path('answerd_questions/<int:stdid>',views.answerd_questions,name='answerd_questions'),
     path('result/<int:stdid>',views.result,name='result'),
-    path('generate', views.generate, name='generate_report'),
-     
-    
 ]
 

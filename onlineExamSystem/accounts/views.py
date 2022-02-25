@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from.forms import RegistrationForm,LoginForm,ExamChoiceFrm,AnsChoice
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import ensure_csrf_cookie,csrf_exempt
-from admin_dash.models import Questions,Course,Paper,Answer
+from admin_dash.models import Questions,Subject,TestName,Answer
 from django.contrib.auth import(
 	authenticate,
 	get_user_model,
@@ -18,14 +18,14 @@ def register(request):
     if request.method=="POST":
         form=RegistrationForm(request.POST or None)
         if form.is_valid():
-            phone=form.cleaned_data.get('phone')
-            roll=form.cleaned_data.get('roll')
+            email=form.cleaned_data.get('email')
+            username=form.cleaned_data.get('username')
        
             user=form.save(commit=False)
             
-            user.set_password(phone)
+            user.set_password(email)
             user.save()
-            newuser=authenticate(roll=roll,password=phone)
+            newuser=authenticate(username=username,password=email)
            
             dj_login(request , newuser)
             return redirect(student_home)
@@ -41,9 +41,9 @@ def login(request):
     if request.method=='POST':
         form=LoginForm(request.POST or None)
         if form.is_valid():
-            phone=form.cleaned_data.get('phone')
-            roll=form.cleaned_data.get('roll')
-            user=authenticate(roll=roll,password=phone)
+            email=form.cleaned_data.get('email')
+            username=form.cleaned_data.get('username')
+            user=authenticate(username=username,password=email)
             dj_login(request,user)
             return redirect(student_home)
     else:
@@ -53,19 +53,21 @@ def login(request):
         'form':form
     }
     return render(request,'login.html', context)
+
+    
 @login_required
 def student_home(request):
     if request.method=='POST':
         form=ExamChoiceFrm(request.POST or None)
         if form.is_valid():        
-            course=request.user.course
-            request.session['course']=request.user.course.id
-            paper=Paper.objects.filter(paper=form.cleaned_data.get('paper'))[0]
-            request.session['paper']=paper.id
-            ex=Answer.objects.filter(student=request.user,question__course=course,question__paper=paper)
+            subject=request.user.subject
+            request.session['subject']=request.user.subject.id
+            testname=TestName.objects.filter(testname=form.cleaned_data.get('testname'))[0]
+            request.session['testname']=testname.id
+            ex=Answer.objects.filter(student=request.user,question__subject=subject,question__testname=testname)
             if ex:
                 exam=ex[0].question
-                if course==exam.course and paper==exam.paper:
+                if subject==exam.subject and testname==exam.testname:
                     form=ExamChoiceFrm()
                     context={
                         'form':form,
@@ -73,7 +75,7 @@ def student_home(request):
                     }
                     return render(request,'student_home.html',context)
             else:
-                qs=Questions.objects.filter(course=course,paper=paper)
+                qs=Questions.objects.filter(subject=subject,testname=testname)
                 if qs:
                     qs=qs[0].qs_no
                     return redirect('exam_home',qs)
@@ -81,7 +83,7 @@ def student_home(request):
                     form=ExamChoiceFrm()
                     context={
                         'form':form,
-                        'msg':'No Question Paper Found',
+                        'msg':'No Question testname Found',
                     }
                     return render(request,'student_home.html',context)
     
@@ -103,9 +105,9 @@ def logout_view(request):
     
 
 def exam_home(request,qno):
-    paper=request.session['paper']
-    course=request.session['course']
-    qts=Questions.objects.filter(course=course,paper=paper)
+    testname=request.session['testname']
+    subject=request.session['subject']
+    qts=Questions.objects.filter(subject=subject,testname=testname)
     try:
         qs=qts.filter(qs_no=qno)[0]
     except:
