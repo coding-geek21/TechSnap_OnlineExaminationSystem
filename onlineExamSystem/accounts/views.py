@@ -18,14 +18,14 @@ def register(request):
     if request.method=="POST":
         form=RegistrationForm(request.POST or None)
         if form.is_valid():
-            email=form.cleaned_data.get('email')
             username=form.cleaned_data.get('username')
+            password=form.cleaned_data.get('password')
        
             user=form.save(commit=False)
             
-            user.set_password(email)
+            user.set_password(password)
             user.save()
-            newuser=authenticate(username=username,password=email)
+            newuser=authenticate(username=username,password=password)
            
             dj_login(request , newuser)
             return redirect(student_home)
@@ -41,9 +41,9 @@ def login(request):
     if request.method=='POST':
         form=LoginForm(request.POST or None)
         if form.is_valid():
-            email=form.cleaned_data.get('email')
+            password=form.cleaned_data.get('password')
             username=form.cleaned_data.get('username')
-            user=authenticate(username=username,password=email)
+            user=authenticate(username=username,password=password)
             dj_login(request,user)
             return redirect(student_home)
     else:
@@ -86,10 +86,6 @@ def student_home(request):
                         'msg':'No Question testname Found',
                     }
                     return render(request,'student_home.html',context)
-    
-            
-   
-   
    
     form=ExamChoiceFrm()
     msg=""

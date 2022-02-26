@@ -13,6 +13,7 @@ class RegistrationForm(forms.ModelForm):
     username=forms.CharField(widget=forms.TextInput(attrs={'class':'','id':'username','placeholder':'username'}))
     email=forms.CharField(widget=forms.TextInput(attrs={'class':'email','id':'email','placeholder':'email'}))
     name=forms.CharField(widget=forms.TextInput(attrs={'class':'name','id':'name','placeholder':'Full Name'}))
+    password=forms.CharField(widget=forms.PasswordInput(attrs={'class':'password','id':'password'}))
     class Meta:
         model=User
         fields=[
@@ -20,11 +21,12 @@ class RegistrationForm(forms.ModelForm):
             'name',
             'email',
             'subject',
+            'password',
 
         ]
 class LoginForm(forms.Form):
 	username=forms.CharField(widget=forms.TextInput(attrs={'class':'','id':'username','placeholder':'username'}))
-	email=forms.CharField(widget=forms.TextInput(attrs={'class':'email','id':'email','placeholder':'email'}))
+	password=forms.CharField(widget=forms.PasswordInput(attrs={'class':'password','id':'password'}))
 
 	def clean(self,*args,**kwargs):
 		email=self.cleaned_data.get('email')
