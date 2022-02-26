@@ -110,9 +110,21 @@ def exam_home(request,qno):
         qs=qts.filter(qs_no=1)[0]
     getqs=Answer.objects.filter(question=qs,student=request.user)
     if getqs:
-        msg="Already answered Your ans will not save"
+        ans=Answer.objects.get(question=qs,student=request.user)
+        msg="You have already choosen Option"
         request.session['msg']=msg
-    else:   
+        if request.method=='POST':
+            form=AnsChoice(request.POST or None)
+            if form.is_valid():
+                ans=form.cleaned_data.get('ans')
+                getans=Answer.objects.get(question=qs,student=request.user)
+                getans.answer=ans
+                getans.save()
+                nqno=int(qno) + 1
+                request.session['msg']="Ans Saved Sucessfully"
+                return redirect('exam_home' ,nqno)
+    else:
+        ans=""   
         request.session['msg']=""
         if request.method=='POST':
             form=AnsChoice(request.POST or None)
@@ -133,5 +145,6 @@ def exam_home(request,qno):
         'ansfrm':ansfrm,
         'questions':qts,
         'qs':qs,
+        'answer':ans,
         }
     return render(request,'question.html',context)

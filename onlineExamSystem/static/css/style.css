@@ -149,8 +149,6 @@ p {
 	width : 100%
 }
 
-/* CONTAINER */
-/*======================================*/
 
 #container {
 	min-height: 100vh;
@@ -182,17 +180,11 @@ p {
     position: absolute;
 }
 
-/* CONTENT */
-/*======================================*/
-
 #content-container {
 	position: relative;
 	padding-top: 90px;
 	padding-bottom: 65px;
 }
-
-/* PAGE HEADER */
-/*======================================*/
 
 #page-title {
 	padding: 10px 20px;
@@ -210,15 +202,6 @@ p {
 	margin-right: .5em
 }
 
-/* PAGE CONTENT */
-/*======================================*/
-/*
-#page-content {
-	padding: 5px 20px 0
-}
-*/
-/* PAGE CONTENT - RESPONSIVE LAYOUT */
-/*======================================*/
 
 @media (min-width:768px) {
 #page-content {
@@ -252,9 +235,6 @@ p {
 }
 }
 
-/* CLEAN ZONE (LOGIN, REGISTER, AND ERROR PAGES CONTAINER) */
-/*======================================*/
-
 .cls-container {
 	background-color: #E7EAEB;
 	text-align: center
@@ -265,8 +245,6 @@ p {
 .cls-container .text-light a, .cls-container .text-light a:hover, .cls-container .text-light a:focus {
 	color: #fff
 }
-
-/* Image background */
 
 .bg-img {
 	position: absolute;
@@ -283,8 +261,6 @@ p {
 	-o-background-size: cover;
 	background-size: cover
 }
-
-/* Header */
 
 .cls-header {
 	position: relative;
@@ -312,7 +288,6 @@ p {
 	font-size: 27px
 }
 
-/* Brand */
 
 .cls-brand {
 	display: inline-block;
@@ -349,7 +324,6 @@ p {
 	width: auto
 }
 
-/* Content */
 
 .cls-content {
 	padding: 50px 15px 15px;
@@ -370,8 +344,6 @@ p {
 	position: relative
 }
 
-/* Scrollbar */
-/*======================================*/
 
 .nano {
 	position: relative;
@@ -421,8 +393,6 @@ p {
 	opacity: .99
 }
 
-/* Pace Page loading */
-
 .pace .pace-progress, .nano>.nano-pane>.nano-slider {
 	background-color: #54abd9
 }
@@ -433,8 +403,6 @@ p {
 	background-color: #54abd9
 }
 
-/* NAVBAR
-/*====================================*/
 
 #navbar {
 	position: absolute;
@@ -462,8 +430,6 @@ p {
 	padding: 0 8px;
 }
 
-/* BRAND LOGO & TEXT
-/*====================================*/
 
 .navbar-brand {
 	color: #000000;
@@ -496,9 +462,6 @@ p {
     font-size: 28px;
     font-weight: 200;
 }
-
-/* NAVBAR ICON & BUTTON */
-/*======================================*/
 
 .navbar-top-links>li {
 	float: left
@@ -601,9 +564,6 @@ p {
 	margin: 0 10px
 }
 
-/* NAVBAR RESPONSIVE */
-/*======================================*/
-
 @media (min-width:768px) {
 #dropdown-user>.dropdown-toggle img {
 	-webkit-transform: translateY(9px);
@@ -636,14 +596,7 @@ p {
 #container.mainnav-in .navbar-brand, #container.mainnav-lg .navbar-brand, #container.mainnav-in .brand-title, #container.mainnav-lg .brand-title {
 	width: 190px
 }
-/*
-#container.mainnav-in .brand-icon, #container.mainnav-sm .brand-icon, #container.mainnav-lg .brand-icon {
-	color: #000;
-}
-#container.mainnav-in .brand-title, #container.mainnav-sm .brand-title, #container.mainnav-lg .brand-title {
-	color: #000
-}
-*/
+
 #container.effect .brand-title, #container.effect.mainnav-in .brand-title, #container.effect.mainnav-sm .brand-title, #container.effect.mainnav-lg .brand-title {
 	-webkit-transition: color .35s;
 	transition: color .35s
@@ -654,19 +607,12 @@ p {
 .navbar-top-links .tgl-menu-btn {
 	position: static
 }
-/*
-.navbar-top-links .tgl-menu-btn>a, .navbar-top-links .tgl-menu-btn>a:hover {
-	color: #ffffff
-}
-*/
+
 .navbar-top-links .tgl-menu-btn>a:focus {
 	background-color: transparent;
 	color: #ffffff
 }
 }
-
-/* NAVBAR : FIXED */
-/*======================================*/
 
 #container.navbar-fixed>#navbar {
 	position: fixed;
@@ -680,9 +626,6 @@ p {
 #container.navbar-fixed .navbar-top-links .dropdown-menu .nano {
 	max-height: 245px
 }
-
-/* NAVIGATION */
-/*======================================*/
 
 #mainnav-container {
 	position: absolute;
@@ -718,14 +661,6 @@ p {
 	overflow: hidden
 }
 
-/* NAVIGATION MENU */
-/*======================================*/
-/*
-#mainnav-menu-wrap {
-	margin-top: -50px;
-	padding-top: 50px
-}
-*/
 #mainnav-menu ul, .mainnav-widget ul, .menu-popover ul, .menu-popover .sub-menu ul {
 	list-style: none;
 	padding-left: 0;
@@ -819,9 +754,6 @@ p {
 	box-shadow: none
 }
 
-/* NAVIGATION - SHORTCUT BUTTONS */
-/*======================================*/
-
 #mainnav-shortcut {
 	max-height: 60px;
 	overflow: hidden
@@ -872,9 +804,6 @@ p {
 	display: none
 }
 
-/* NAVIGATION - WIDGET */
-/*======================================*/
-
 .mainnav-widget {
 	color: #adb3b8
 }
@@ -885,8 +814,7 @@ p {
 	display: none
 }
 
-/* NAVIGATION - FIXED POSITION */
-/*======================================*/
+
 
 #container.mainnav-fixed #mainnav-container {
 	position: fixed
@@ -916,8 +844,6 @@ p {
 }
 }
 
-/* MAIN NAVIGATION - AFFIX */
-/*======================================*/
 
 #container.mainnav-fixed:not(.navbar-fixed) #mainnav-container.affix {
 	top: -50px;
@@ -928,10 +854,6 @@ p {
 	position: absolute
 }
 
-/* MAIN NAVIGATION - EXPANDING  */
-
-/* For large screen */
-/*======================================*/
 
 @media (min-width:992px) {
 #container.mainnav-lg #mainnav-container {
@@ -956,8 +878,6 @@ p {
 }
 }
 
-/* Expanding with off canvas mode */
-/*======================================*/
 
 @media (min-width:768px) and (max-width:991px) {
 #container.mainnav-lg #content-container, #container.mainnav-lg #footer,  {
@@ -977,8 +897,6 @@ p {
 }
 }
 
-/* NAVIGATION - COLLAPSING  */
-/*======================================*/
 
 @media (min-width:768px) {
 #mainnav-menu .list-header, 
@@ -1161,8 +1079,7 @@ p {
 	top: auto !important
 }
 
-  /* NAVIGATION - POPOVER  */
-  /*======================================*/
+
 
 #mainnav .menu-popover .nano>.nano-content {
 	position: absolute
@@ -1302,9 +1219,6 @@ p {
 	display: none
 }
 
-/* NAVIGATION - OFFCANVAS */
-/*======================================*/
-
 #container.mainnav-in.footer-fixed #footer, #container.mainnav-in #navbar, #container.mainnav-in #content-container, #container.mainnav-in #footer {
 	left: 190px;
 	padding-right: 190px;
@@ -1313,11 +1227,7 @@ p {
 #container.mainnav-in #mainnav-container {
 	left: 0;
 }
-/*
-#container.mainnav-in .navbar-header {
-	left: -190px
-}
-*/
+
 
 #container.mainnav-in #mainnav-menu-wrap {
 	height: 100%
@@ -1334,11 +1244,7 @@ p {
 #container.mainnav-out.jumping #mainnav-container {
 	box-shadow: -20px 0 0 0 #32404e
 }
-/*
-#container.mainnav-in #navbar, #container.mainnav-in .navbar-header {
-	left: 0
-}
-*/
+
 #container.mainnav-in .tgl-menu-btn {
 	right: 0
 }
@@ -1349,8 +1255,6 @@ p {
 	color: #ffffff
 }
 
-/* Reveal*/
-/*======================================*/
 
 #container.reveal #content-container {
 	min-height: 100vh
@@ -1385,8 +1289,6 @@ p {
 	transition-duration: 0
 }
 
-/* Slide in on top */
-/*======================================*/
 
 #container.mainnav-in.slide #navbar, #container.mainnav-in.slide #content-container, #container.mainnav-in.slide #footer {
 	left: 0

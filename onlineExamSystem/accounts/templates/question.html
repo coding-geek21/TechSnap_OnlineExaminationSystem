@@ -38,6 +38,7 @@
         <form action="" method="POST">{% csrf_token%}
         <div class="col-lg-8">
             {{request.session.msg}}
+            {{answer}}
             <div class="row" style="height: 500px;">
                 <div class="q_box">
                     {{qs.qs_no}}.&emsp;&emsp;
@@ -53,19 +54,8 @@
                     <div class="row">
                         <div class="col-lg-6"><div class="op">{{ansfrm.ans.2}}&emsp;&emsp;{{qs.option_c}}</div></div>
                         <div class="col-lg-6"><div class="op">{{ansfrm.ans.3}}&emsp;&emsp;{{qs.option_d}}</div></div>
-                   
                     </div>
-                   
-                    
-                    
-                    
-                    
-                </div>
-                
-                
-                
-                
-                  
+                </div>            
             </div>
             <div class="row"style="height: 150px;">
             <div class="col-lg-4">
