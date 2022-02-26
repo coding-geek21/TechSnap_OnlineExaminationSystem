@@ -20,7 +20,9 @@
                     <td>{{data.student.username}}</td>
                     <td>{{data.student.name}}</td>   
                     <td>{{data.student.subject}}</td>
+                    {% for i in total_tests %}
                     <td>{{data.testname.0}}</td>
+                    {% endfor %}
                 </tr>
                 {% endfor %}
     </tbody>

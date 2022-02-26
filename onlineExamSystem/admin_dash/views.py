@@ -122,9 +122,10 @@ def view_results(request):
                     m=m+1
             pp.append(m)
             std['testname']=pp
+        no_of_tests=len(pp)
         data.append(std)
     context={
-        'datas':data
-
+        'datas':data,
+        'total_tests':range(0,no_of_tests)
     }
     return render(request,'view_results.html',context)
