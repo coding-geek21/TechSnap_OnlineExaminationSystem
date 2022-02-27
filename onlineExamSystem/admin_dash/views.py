@@ -4,7 +4,6 @@ from .models import Questions,Answer,Subject,TestName
 from.forms import AddQFrm
 from accounts.models import User
 from io import BytesIO
-from reportlab.pdfgen import canvas
 from django.contrib.admin.views.decorators import staff_member_required
 
 @staff_member_required
